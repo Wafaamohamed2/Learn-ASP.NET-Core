@@ -1,5 +1,7 @@
 
+using Learn_ASP.NET_Core.Data;
 using Learn_ASP.NET_Core.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Learn_ASP.NET_Core
 {
@@ -16,7 +18,7 @@ namespace Learn_ASP.NET_Core
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-
+            builder.Services.AddDbContext<ApplicationDbContext>(builder => builder.UseSqlServer("Data Source=WAFAA;Initial Catalog=MARKET;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"));
            // builder.Services.AddSingleton<IWeatherForcastSevices,WeatherForcastSevices>(); // create a single instance of the service for the entire application
 
 
