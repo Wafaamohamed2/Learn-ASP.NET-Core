@@ -1,5 +1,6 @@
 
 using Learn_ASP.NET_Core.Data;
+using Learn_ASP.NET_Core.MiddelWares;
 using Learn_ASP.NET_Core.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,12 +37,13 @@ namespace Learn_ASP.NET_Core
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseMiddleware<RateLimittingMiddelWare>();   
 
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
-
+            app.UseMiddleware<ProfillingMiddelWares>();
             app.MapControllers();
 
             app.Run();
